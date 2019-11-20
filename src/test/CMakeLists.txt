@@ -63,11 +63,11 @@ set(test_sources
         _impl/wide_integer/from_value.cpp
         _impl/wide_integer/literals.cpp
         _impl/wide_integer/make_wide_integer.cpp
-        _impl/wide_integer/numeric_limits.cpp
-        _impl/wide_integer/operators.cpp
+#        _impl/wide_integer/numeric_limits.cpp
         _impl/wide_integer/scale.cpp
         _impl/wide_integer/set_digits.cpp
-        _impl/wide_integer/type.cpp
+#        _impl/wide_integer/definition.cpp
+#        _impl/wide_integer/generic.cpp
 
         # components in free functions
         elastic/rounding/elastic_integer_rounding.cpp
@@ -77,16 +77,16 @@ set(test_sources
         rounding/scaled_integer/scaled_integer.cpp
 
         # composites
-        elastic/wide/wide_elastic_integer.cpp
+#        elastic/wide/wide_elastic_integer.cpp
         fixed_point/integer/fixed_point_integer.cpp
         fixed_point/overflow/fixed_point_native_integer.cpp
         fixed_point/overflow/fixed_point_trapping_integer.cpp
         fixed_point/overflow/fixed_point_throwing_integer.cpp
         fixed_point/overflow/fixed_point_saturated_integer.cpp
         fixed_point/rounding/fixed_point_rounding.cpp
-        fixed_point/wide_integer/fixed_point_wide_integer.cpp
-        fixed_point/wide_integer/fixed_point_wide_integer_32.cpp
-        fixed_point/wide_integer/fixed_point_wide_integer_8.cpp
+#        fixed_point/wide_integer/fixed_point_wide_integer.cpp
+#        fixed_point/wide_integer/fixed_point_wide_integer_32.cpp
+#        fixed_point/wide_integer/fixed_point_wide_integer_8.cpp
         fixed_point/overflow/undefined_overflow.cpp
         fixed_point/rounding/overflow/fixed_point_rounding_overflow.cpp
         fixed_point/rounding/elastic/integer.cpp
@@ -97,9 +97,9 @@ set(test_sources
         scaled_integer/overflow/scaled_integer_throwing_integer.cpp
         scaled_integer/overflow/scaled_integer_saturated_integer.cpp
         scaled_integer/rounding/scaled_integer_rounding.cpp
-        scaled_integer/wide_integer/scaled_integer_wide_integer.cpp
-        scaled_integer/wide_integer/scaled_integer_wide_integer_32.cpp
-        scaled_integer/wide_integer/scaled_integer_wide_integer_8.cpp
+#        scaled_integer/wide_integer/scaled_integer_wide_integer.cpp
+#        scaled_integer/wide_integer/scaled_integer_wide_integer_32.cpp
+#        scaled_integer/wide_integer/scaled_integer_wide_integer_8.cpp
         scaled_integer/overflow/undefined_overflow.cpp
         scaled_integer/rounding/overflow/scaled_integer_rounding_overflow.cpp
         scaled_integer/rounding/elastic/integer.cpp
@@ -111,7 +111,7 @@ set(test_sources
         elastic/rounding/integer.cpp
         elastic/rounding/overflow/rounding_safe_integer.cpp
         overflow/elastic/safe_integer.cpp
-        overflow/wide/wide_overflow_integer.cpp
+#        overflow/wide/wide_overflow_integer.cpp
         fixed_point/elastic/make_elastic_fixed_point.cpp
         fixed_point/elastic/elastic_fixed_point.cpp
         fixed_point/rounding/elastic/rounding_elastic_fixed_point.cpp
@@ -120,14 +120,14 @@ set(test_sources
         scaled_integer/elastic/elastic_scaled_integer.cpp
         scaled_integer/rounding/elastic/rounding_elastic_scaled_integer.cpp
         scaled_integer/overflow/elastic/integer.cpp
-        static_integer/operators.cpp
-        static_integer/type.cpp
-        static_number/426.cpp
-        static_number/429.cpp
-        static_number/operators.cpp
-        static_number/rounding.cpp
-        static_number/to_chars.cpp
-        static_number/type.cpp
+#        static_integer/operators.cpp
+#        static_integer/type.cpp
+#        static_number/426.cpp
+#        static_number/429.cpp
+#        static_number/operators.cpp
+#        static_number/rounding.cpp
+#        static_number/to_chars.cpp
+#        static_number/type.cpp
 )
 
 # source files containing demos and examples of CNL;

@@ -11,15 +11,15 @@
 #define CNL_IMPL_ELASTIC_INTEGER_FROM_REP_H
 
 #include "../num_traits/from_rep.h"
-#include "../num_traits/set_rep.h"
 #include "declaration.h"
+#include "set_rep.h"
 
 /// compositional numeric library
 namespace cnl {
     template<int Digits, class Narrowest, class Rep>
     struct from_rep<elastic_integer<Digits, Narrowest>, Rep> {
         CNL_NODISCARD constexpr auto operator()(Rep const& r) const
-        -> _impl::set_rep_t<elastic_integer<Digits, Narrowest>, Rep>
+        -> typename set_rep<elastic_integer<Digits, Narrowest>, Rep>::type
         {
             return r;
         }
