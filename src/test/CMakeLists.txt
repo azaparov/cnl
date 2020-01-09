@@ -19,6 +19,7 @@ set(test_sources
         numeric.cpp
         number_test.cpp
         overflow/overflow.cpp
+        overflow/rounding/integer.cpp
         rounding/rounding.cpp
         _impl/num_traits/max_digits.cpp
         _impl/num_traits/adopt.cpp
@@ -30,7 +31,7 @@ set(test_sources
         # components
         constant.cpp
         integer/digits.cpp
-        integer/from_rep.cpp
+        integer/set_rep.cpp
         integer/from_value.cpp
         integer/make_integer.cpp
         integer/numeric_limits.cpp
@@ -38,18 +39,15 @@ set(test_sources
         integer/scale.cpp
         integer/set_digits.cpp
         integer/type.cpp
-        fixed_point/fixed_point_built_in.cpp
-        fixed_point/decimal.cpp
-        fixed_point/constants.cpp
         scaled_integer/scaled_integer_built_in.cpp
         scaled_integer/decimal.cpp
         scaled_integer/constants.cpp
         fraction/ctors.cpp
         fraction/fraction.cpp
         elastic/elastic_integer.cpp
-        fixed_point/extras.cpp
         scaled_integer/extras.cpp
         overflow/overflow_integer.cpp
+        overflow/overflow_tag.cpp
         rounding/rounding_integer.cpp
         _impl/duplex_integer/digits.cpp
         _impl/duplex_integer/numeric_limits.cpp
@@ -62,10 +60,10 @@ set(test_sources
         _impl/wide_integer/literals.cpp
         _impl/wide_integer/make_wide_integer.cpp
         _impl/wide_integer/numeric_limits.cpp
-        _impl/wide_integer/operators.cpp
         _impl/wide_integer/scale.cpp
         _impl/wide_integer/set_digits.cpp
-        _impl/wide_integer/type.cpp
+        _impl/wide_integer/definition.cpp
+        _impl/wide_integer/generic.cpp
 
         # components in free functions
         elastic/rounding/elastic_integer_rounding.cpp
@@ -76,19 +74,6 @@ set(test_sources
 
         # composites
         elastic/wide/wide_elastic_integer.cpp
-        fixed_point/integer/fixed_point_integer.cpp
-        fixed_point/overflow/fixed_point_native_integer.cpp
-        fixed_point/overflow/fixed_point_trapping_integer.cpp
-        fixed_point/overflow/fixed_point_throwing_integer.cpp
-        fixed_point/overflow/fixed_point_saturated_integer.cpp
-        fixed_point/rounding/fixed_point_rounding.cpp
-        fixed_point/wide_integer/fixed_point_wide_integer.cpp
-        fixed_point/wide_integer/fixed_point_wide_integer_32.cpp
-        fixed_point/wide_integer/fixed_point_wide_integer_8.cpp
-        fixed_point/overflow/undefined_overflow.cpp
-        fixed_point/rounding/overflow/fixed_point_rounding_overflow.cpp
-        fixed_point/rounding/elastic/integer.cpp
-        fixed_point/elastic/rounding/overflow/426.cpp
         scaled_integer/integer/scaled_integer_integer.cpp
         scaled_integer/overflow/scaled_integer_native_integer.cpp
         scaled_integer/overflow/scaled_integer_trapping_integer.cpp
@@ -104,16 +89,11 @@ set(test_sources
         scaled_integer/elastic/rounding/overflow/426.cpp
         rounding/elastic/rounding_elastic_integer.cpp
         rounding/overflow/elastic/integer.cpp
-        fixed_point/rounding/rounding_fixed_point.cpp
         scaled_integer/rounding/rounding_scaled_integer.cpp
         elastic/rounding/integer.cpp
         elastic/rounding/overflow/rounding_safe_integer.cpp
         overflow/elastic/safe_integer.cpp
         overflow/wide/wide_overflow_integer.cpp
-        fixed_point/elastic/make_elastic_fixed_point.cpp
-        fixed_point/elastic/elastic_fixed_point.cpp
-        fixed_point/rounding/elastic/rounding_elastic_fixed_point.cpp
-        fixed_point/elastic/overflow/saturated.cpp
         scaled_integer/elastic/make_elastic_scaled_integer.cpp
         scaled_integer/elastic/elastic_scaled_integer.cpp
         scaled_integer/rounding/elastic/rounding_elastic_scaled_integer.cpp
@@ -143,7 +123,6 @@ set(sample_sources
         presentations/cppcon2017.cpp
         presentations/cppdub2018.cpp
         presentations/cppnow2017.cpp
-        fixed_point/math.cpp
         scaled_integer/math.cpp
         zero_cost_square.cpp
         zero_cost_free_functions.cpp
@@ -247,6 +226,7 @@ function(make_test source out_target compile_flags linker_flags)
                     "${ClangTidy}"
                     "-p=${CMAKE_BINARY_DIR}"
                     "-extra-arg=-Wno-unknown-warning-option"
+                    "-header-filter=include/cnl"
                     "${CMAKE_CURRENT_LIST_DIR}/${source}")
         endif (NOT ${ClangTidy} STREQUAL "ClangTidy-NOTFOUND")
     endif (${CNL_CLANG_TIDY})
