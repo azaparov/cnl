@@ -41,6 +41,8 @@ namespace cnl {
             {
                 using result_numeric_limits = numeric_limits<decltype(decltype(
                         std::declval<S>() >> constant<digits<S>::value-1>{}){1} << constant<Exponent>{})>;
+                //static_assert(!std::is_integral<S>::value
+                //              , "type is not integral");
                 static_assert(!std::is_integral<S>::value
                         || !std::is_signed<S>::value
                         || Exponent<result_numeric_limits::digits, "attempted operation will result in overflow");
